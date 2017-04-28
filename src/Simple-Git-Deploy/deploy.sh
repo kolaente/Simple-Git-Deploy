@@ -39,26 +39,20 @@ if [ -z "$DEPLOY_DIR" ]
     exit 1
 fi
 
-#mkdir ${DEPLOY_DIR}_dep
 rm -Rf /tmp/git-deploy
 ssh-agent bash -c "ssh-add ${KEY}; git clone ${GIT_URL} /tmp/git-deploy"
 rm -Rf /tmp/git-deploy/.git
 rm -Rf ${DEPLOY_DIR}/.* 2> /dev/null
 rm -Rf ${DEPLOY_DIR}/*
-#sleep 1
 
 mv -fT /tmp/git-deploy ${DEPLOY_DIR}
 #cp -urfv /tmp/git-deploy/* ${DEPLOY_DIR}/*
 rm -rf /tmp/git-deploy
 
-#echo $DCONTAINER_NAME
 if [ ! -z "$DCONTAINER_NAME" ]
   then
     docker restart $DCONTAINER_NAME
 fi
-
-#[! -z "$DCONTAINER_NAME" ] && docker restart "$DCONTAINER_NAME"
-
 
 echo "Finished at:"
 date
