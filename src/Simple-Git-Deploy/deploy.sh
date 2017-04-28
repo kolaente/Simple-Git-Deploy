@@ -10,6 +10,27 @@ while getopts ':k:g:d:c:' OPTION ; do
   esac
 done
 
+#Check for Key
+if [ -z "$KEY" ]
+  then
+    echo "You must provide a ssh-keyfile (via -k /path/to/key)!"
+    exit 1
+fi
+
+#Check for Git-URL
+if [ -z "$GIT_URL" ]
+  then
+    echo "You must provide a git-url to clone from (via -g git_url)!"
+    exit 1
+fi
+
+#Check for deploy-path
+if [ -z "$DEPLOY_DIR" ]
+  then
+    echo "You must provide a deploydir path (via -c /path/to/deploy/dir)!"
+    exit 1
+fi
+
 echo "-----------------------------"
 echo "Started at:"
 date
