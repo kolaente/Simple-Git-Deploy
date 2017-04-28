@@ -10,6 +10,14 @@ while getopts ':k:g:d:c:' OPTION ; do
   esac
 done
 
+echo "-----------------------------"
+echo "Started at:"
+date
+echo "Key: ${KEY}"
+echo "Git-Url: ${GIT_URL}"
+echo "Deploy-Dir: ${DEPLOY_DIR}"
+echo "----------------------------"
+
 #Check for Key
 if [ -z "$KEY" ]
   then
@@ -30,15 +38,6 @@ if [ -z "$DEPLOY_DIR" ]
     echo "You must provide a deploydir path (via -c /path/to/deploy/dir)!"
     exit 1
 fi
-
-echo "-----------------------------"
-echo "Started at:"
-date
-echo "Key: ${KEY}"
-echo "Git-Url: ${GIT_URL}"
-echo "Deploy-Dir: ${DEPLOY_DIR}"
-#echo "ssh-agent bash -c 'ssh-add ${KEY}; git clone ${GIT_URL} /tmp/git-deploy'"
-echo "----------------------------"
 
 #mkdir ${DEPLOY_DIR}_dep
 rm -Rf /tmp/git-deploy
