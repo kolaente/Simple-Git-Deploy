@@ -38,7 +38,6 @@ type Payload struct {
 }
 
 func main() {
-	
 	if config("git_url") != "" && config("deploy_dir") != "" && config("ssh_key") != "" {
 
 		// Server
