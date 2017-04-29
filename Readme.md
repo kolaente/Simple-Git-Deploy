@@ -29,6 +29,23 @@ branch_name=refs/heads/master
 
 # Troubleshooting
 
+### "error decoding response"
+
+Make sure the request is made with "application/x-www-urlencoded"
+
+### Error 127
+
+You recive an errormessage like this:
+
+```
+2017/04/29 16:51:51 Recived payload, Secret: m3VScr9st09y , Ref: refs/heads/master
+2017/04/29 16:51:51 Recived corresponding secret:  m3VScr9st09y
+2017/04/29 16:51:51 Starting update...
+2017/04/29 16:51:51 exit status 127
+```
+
+Make sure the `deploy.sh` exists in the same folder as your binary and is executable.
+
 ### Not Cloning - the script runs pretty fast but wont clone
 
 Check the permissions of your keyfile. They should be 600, otherwise the ssh-agent will ignore the keyfile and won't clone:
