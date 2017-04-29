@@ -1,12 +1,12 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/go-ini/ini"
+	"io/ioutil"
 	"log"
 	"net/http"
-	"io/ioutil"
-	"encoding/json"
 	"net/url"
 	"os/exec"
 )
@@ -62,7 +62,7 @@ func handleHook(w http.ResponseWriter, r *http.Request) {
 		log.Println("Recived payload, Secret:", hook_data.Secret, ", Ref:", hook_data.Ref)
 
 		if hook_data.Secret == config("secret") {
-			if hook_data.Ref == config("branch_name") || hook_data.Ref == "refs/heads/" + config("secret") {
+			if hook_data.Ref == config("branch_name") || hook_data.Ref == "refs/heads/"+config("secret") {
 				log.Println("Recived corresponding secret: ", hook_data.Secret)
 				log.Println("Starting update...")
 				cmd, err := exec.Command("/bin/bash", "deploy.sh", "-k", config("ssh_key"), "-g", config("git_url"), "-d", config("deploy_dir"), "-c", config("container_name")).Output()
