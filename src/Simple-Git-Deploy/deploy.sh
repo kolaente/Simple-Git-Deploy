@@ -10,13 +10,13 @@ while getopts ':k:g:d:c:' OPTION ; do
   esac
 done
 
-echo "-----------------------------"
-echo "Started at:"
-date
-echo "Key: ${KEY}"
-echo "Git-Url: ${GIT_URL}"
-echo "Deploy-Dir: ${DEPLOY_DIR}"
-echo "----------------------------"
+#echo "-----------------------------"
+#echo "Started at:"
+#date
+#echo "Key: ${KEY}"
+#echo "Git-Url: ${GIT_URL}"
+#echo "Deploy-Dir: ${DEPLOY_DIR}"
+#echo "----------------------------"
 
 #Check for Key
 if [ -z "$KEY" ]
@@ -54,6 +54,6 @@ if [ ! -z "$DCONTAINER_NAME" ]
     docker restart $DCONTAINER_NAME
 fi
 
-echo "Finished at:"
-date
-echo "-----------------------------"
+#echo "Finished at:"
+#date
+#echo "-----------------------------"
