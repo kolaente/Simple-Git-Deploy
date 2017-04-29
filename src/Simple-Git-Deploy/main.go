@@ -2,16 +2,9 @@ package main
 
 import (
 	"fmt"
-	//"os/exec"
-
 	"github.com/go-ini/ini"
 	"log"
 	"net/http"
-	//"encoding/json"
-	//"os/exec"
-	//"github.com/go-playground/form"
-	//"encoding/json"
-	"github.com/go-playground/form"
 	"io/ioutil"
 	"encoding/json"
 	"net/url"
@@ -50,8 +43,6 @@ func main() {
 		fmt.Println("You must provide at least a Git-Url, Deploy-Dir and SSH-Key!")
 	}
 }
-
-var decoder *form.Decoder
 
 func handleHook(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
