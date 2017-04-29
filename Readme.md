@@ -3,7 +3,7 @@
 This simple application provides automatic update of git repositories on your server.
 Triggered by a webhook (like the one from github), it can be very useful when you don't have (or don't want) a fully-fleged CI-Server to update your website.
 
-**Note: ** The application currently runs only under linux-systems as it uses a bash-script to update.
+**Note:** The application currently runs only under linux-systems as it uses a bash-script to update.
 
 # Usage
 
