@@ -10,14 +10,22 @@ Triggered by a webhook (like the one from github), it can be very useful when yo
 Usage is pretty simple. Simply configure the application via config.ini:
 
 ```
-ssh_key=/path/to/deploy-key # Path to the Deploy-SSH
-git_url=ssh://git@your-server.tld/gitproject.git # SSH-Path to your Git-Project
-deploy_dir=/path/to/deploy/dir # The folder to which the updated version of your site will be deployed. You need write permissions.
-container_name= # If you run your site within a docker-container, the application can automatically restart the container for any changes to take effect.
-secret= # The Secret sent by the webhook - to prevent abuse
-interface=":8080" # The interface the server should listen on
-branch_name=refs/heads/master # The name of the branch. If an update to this branch is triggered, the application will run the update.
+ssh_key=/path/to/deploy-key
+git_url=ssh://git@your-server.tld/gitproject.git
+deploy_dir=/path/to/deploy/dir
+container_name=
+secret= iamverySecret
+interface=":8080" 
+branch_name=refs/heads/master 
 ```
+
+* **ssh_key:** Path to the Deploy-SSH
+* **git_url:** SSH-Path to your Git-Project
+* **deploy_dir:** The folder to which the updated version of your site will be deployed. You need write permissions.
+* **container_name:** If you run your site within a docker-container, the application can automatically restart the container for any changes to take effect.
+* **secret:** The Secret sent by the webhook - to prevent abuse
+* **interface:** The interface the server should listen on
+* **branch_name:** The name of the branch. If an update to this branch is triggered, the application will run the update.
 
 # Troubleshooting
 
